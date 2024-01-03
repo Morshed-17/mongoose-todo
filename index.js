@@ -6,9 +6,8 @@ require("dotenv").config();
 
 require("./config/db")();
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+const mainRouter = require("./routers/api");
+app.use("/", mainRouter);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
